@@ -1,0 +1,234 @@
+/* Modern Minimalist CSS */
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #f5f5f5;
+    --text-color: #333333;
+    --light-text: #777777;
+    --spacing: 2rem;
+    --max-width: 1400px;
+    --border-radius: 4px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    .abril-fatface-regular {
+        font-family: "Abril Fatface", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem var(--spacing);
+    z-index: 100;
+    background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.header__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.header__nav a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.header__nav a:hover {
+    opacity: 0.7;
+}
+
+.header__nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--text-color);
+    transition: var(--transition);
+}
+
+.header__nav a:hover::after {
+    width: 100%;
+}
+
+.main-content {
+    padding: 0 var(--spacing);
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: var(--spacing);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.work-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: calc(var(--spacing) * 1.5);
+    transition: var(--transition);
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+}
+
+.work-card__video {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    background: var(--gray);
+}
+
+.work-card__video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.work-card__info {
+    padding: 1.25rem 0 0;
+}
+
+.work-card__info h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.work-card__info p {
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+.about-section, .contact-section {
+    max-width: var(--max-width);
+    margin: 6rem auto;
+    padding: 0 var(--spacing);
+}
+
+.about-section h2, .contact-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.about-text {
+    max-width: 600px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.contact-content {
+    font-size: 1.1rem;
+}
+
+.contact-content a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.75rem;
+    transition: var(--transition);
+}
+
+.contact-content a:hover {
+    opacity: 0.7;
+}
+
+.instagram-link {
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.footer {
+    text-align: center;
+    padding: 3rem var(--spacing);
+    margin-top: 4rem;
+    font-size: 0.8rem;
+    color: var(--light-text);
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .work-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing: 1.5rem;
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+    
+    .header {
+        padding: 1rem var(--spacing);
+    }
+    
+    .header__nav a {
+        margin-left: 1.5rem;
+    }
+    
+    .about-section, .contact-section {
+        margin: 4rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header__name {
+        font-size: 1.1rem;
+    }
+    
+    .header__nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .about-text, .contact-content {
+        font-size: 1rem;
+    }
+}
